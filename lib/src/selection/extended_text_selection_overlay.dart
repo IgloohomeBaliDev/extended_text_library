@@ -76,6 +76,7 @@ class ExtendedTextSelectionOverlay {
   /// The objects supplied to the [CompositedTransformTarget] that wraps the
   /// location of end selection handle.
   final LayerLink endHandleLayerLink;
+
   // (mpcomplete): what if the renderObject is removed or replaced, or
   // moves? Not sure what cases I need to handle, or how to handle them.
   /// The editable line in which the selected text is being displayed.
@@ -124,6 +125,7 @@ class ExtendedTextSelectionOverlay {
   static const Duration fadeDuration = Duration(milliseconds: 150);
 
   AnimationController _toolbarController;
+
   Animation<double> get _toolbarOpacity => _toolbarController.view;
 
   /// Retrieve current value.
@@ -157,6 +159,7 @@ class ExtendedTextSelectionOverlay {
   /// Defaults to false.
   bool get handlesVisible => _handlesVisible;
   bool _handlesVisible = false;
+
   set handlesVisible(bool visible) {
     assert(visible != null);
     if (_handlesVisible == visible) {
@@ -353,6 +356,7 @@ class ExtendedTextSelectionOverlay {
           endpoints,
           selectionDelegate,
           clipboardStatus,
+          null,
         ),
       ),
     );
@@ -423,6 +427,7 @@ class _TextSelectionHandleOverlayState
   Offset _dragPosition;
 
   AnimationController _controller;
+
   Animation<double> get _opacity => _controller.view;
 
   @override

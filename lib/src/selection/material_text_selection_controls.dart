@@ -282,7 +282,9 @@ class ExtendedMaterialTextSelectionToolbarContainerRenderBox
   double _closedWidth;
 
   bool _overflowOpen;
+
   bool get overflowOpen => _overflowOpen;
+
   set overflowOpen(bool value) {
     if (value == overflowOpen) {
       return;
@@ -432,7 +434,9 @@ class ExtendedMaterialTextSelectionToolbarItemsRenderBox extends RenderBox
   int _lastIndexThatFits = -1;
 
   bool _isAbove;
+
   bool get isAbove => _isAbove;
+
   set isAbove(bool value) {
     if (value == isAbove) {
       return;
@@ -442,7 +446,9 @@ class ExtendedMaterialTextSelectionToolbarItemsRenderBox extends RenderBox
   }
 
   bool _overflowOpen;
+
   bool get overflowOpen => _overflowOpen;
+
   set overflowOpen(bool value) {
     if (value == overflowOpen) {
       return;
@@ -767,6 +773,7 @@ class ExtendedMaterialTextSelectionControls extends TextSelectionControls {
     List<TextSelectionPoint> endpoints,
     TextSelectionDelegate delegate,
     ClipboardStatusNotifier clipboardStatus,
+    Offset lastSecondaryTapDownPosition,
   ) {
     assert(debugCheckHasMediaQuery(context));
     assert(debugCheckHasMaterialLocalizations(context));

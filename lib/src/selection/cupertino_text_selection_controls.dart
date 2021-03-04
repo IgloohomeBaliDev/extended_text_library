@@ -261,6 +261,7 @@ class _ToolbarParentData extends BoxParentData {
   // Positive if the tip of the arrow has a larger x-coordinate than the
   // center of the toolbar.
   double arrowXOffsetFromCenter;
+
   @override
   String toString() =>
       'offset=$offset, arrowXOffsetFromCenter=$arrowXOffsetFromCenter';
@@ -278,6 +279,7 @@ class _ToolbarRenderBox extends RenderShiftedBox {
   bool get isRepaintBoundary => true;
 
   double _barTopY;
+
   set barTopY(double value) {
     if (_barTopY == value) {
       return;
@@ -288,6 +290,7 @@ class _ToolbarRenderBox extends RenderShiftedBox {
   }
 
   double _arrowTipX;
+
   set arrowTipX(double value) {
     if (_arrowTipX == value) {
       return;
@@ -298,6 +301,7 @@ class _ToolbarRenderBox extends RenderShiftedBox {
   }
 
   bool _isArrowPointingDown;
+
   set isArrowPointingDown(bool value) {
     if (_isArrowPointingDown == value) {
       return;
@@ -488,6 +492,7 @@ class ExtendedCupertinoTextSelectionControls extends TextSelectionControls {
     List<TextSelectionPoint> endpoints,
     TextSelectionDelegate delegate,
     ClipboardStatusNotifier clipboardStatus,
+    Offset lastSecondaryTapDownPosition,
   ) {
     assert(debugCheckHasMediaQuery(context));
     final MediaQueryData mediaQuery = MediaQuery.of(context);
@@ -613,7 +618,8 @@ class ExtendedCupertinoTextSelectionToolbarContent extends StatefulWidget {
     @required this.isArrowPointingDown,
   })  : assert(children != null),
         // This ignore is used because .isNotEmpty isn't compatible with const.
-        assert(children.length > 0), // ignore: prefer_is_empty
+        assert(children.length > 0),
+        // ignore: prefer_is_empty
         super(key: key);
 
   final List<Widget> children;
@@ -1010,7 +1016,9 @@ class ExtendedCupertinoTextSelectionToolbarItemsRenderBox extends RenderBox
   }
 
   int _page;
+
   int get page => _page;
+
   set page(int value) {
     if (value == _page) {
       return;
@@ -1020,7 +1028,9 @@ class ExtendedCupertinoTextSelectionToolbarItemsRenderBox extends RenderBox
   }
 
   double _dividerWidth;
+
   double get dividerWidth => _dividerWidth;
+
   set dividerWidth(double value) {
     if (value == _dividerWidth) {
       return;
@@ -1030,21 +1040,27 @@ class ExtendedCupertinoTextSelectionToolbarItemsRenderBox extends RenderBox
   }
 
   RenderBox _backButton;
+
   RenderBox get backButton => _backButton;
+
   set backButton(RenderBox value) {
     _backButton = _updateChild(
         _backButton, value, _CupertinoTextSelectionToolbarItemsSlot.backButton);
   }
 
   RenderBox _nextButton;
+
   RenderBox get nextButton => _nextButton;
+
   set nextButton(RenderBox value) {
     _nextButton = _updateChild(
         _nextButton, value, _CupertinoTextSelectionToolbarItemsSlot.nextButton);
   }
 
   RenderBox _nextButtonDisabled;
+
   RenderBox get nextButtonDisabled => _nextButtonDisabled;
+
   set nextButtonDisabled(RenderBox value) {
     _nextButtonDisabled = _updateChild(_nextButtonDisabled, value,
         _CupertinoTextSelectionToolbarItemsSlot.nextButtonDisabled);
